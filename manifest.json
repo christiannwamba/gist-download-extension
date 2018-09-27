@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Gist file downloader",
+  "description": "An extension that can be used for downloading gist files.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "src/popup.html"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://gist.github.com/*"],
+      "js": ["src/build/main.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
